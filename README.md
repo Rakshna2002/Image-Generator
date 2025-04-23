@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f316f11e-4bc5-42ef-84ac-3750d09e0ca8)# AI Image Generator with Stable Diffusion
+# AI Image Generator with Stable Diffusion
 
 This is a simple and fun project where I explored how to generate images using AI — specifically, the **Stable Diffusion 2** model from Hugging Face. You just give it a prompt and it creates an image based on that.
 
