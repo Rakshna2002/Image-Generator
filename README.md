@@ -4,21 +4,47 @@ This is a simple and fun project where I explored how to generate images using A
 
 ---
 
-## What It Does
+## Image Generation Pipeline
 
-- Takes a short text prompt and turns it into an image using AI.
-- Uses the Stable Diffusion model via Hugging Face’s `diffusers` library.
-- Can run on GPU (CUDA) for faster generation.
-- You can tweak how the image is generated — like how detailed it should be, what size, and more.
+The Stable Diffusion model generates images based on short descriptive prompts. The following configuration parameters are used:
+
+- **Prompt**: A sentence or phrase describing the desired image (e.g., *"Protest to save water"*)
+- **Model**: Pre-trained Stable Diffusion 2 (`stabilityai/stable-diffusion-2`)
+- **Inference Settings**:
+  - Image resolution: 400x400 px
+  - Inference steps: 35
+  - Guidance scale: 9
+  - Generator seeded for reproducibility (`torch.Generator.manual_seed(42)`)
 
 ---
 
-## 🛠️ How It Works
+## System Modules
 
-- First, I set up the config: device (`cuda`), seed for consistent results, model IDs, image size, etc.
-- Then I load the image generation model (`stabilityai/stable-diffusion-2`) with a few settings to speed things up and make it run on GPU.
-- The `generate_image()` function is where the magic happens — you pass in a prompt, and it gives you back an AI-generated image.
-- That’s pretty much it! You can plug in any text and get cool visuals back.
+### 1. Prompt Handling
+
+- Takes user prompt as input.
+- Passes the prompt into the model pipeline.
+
+### 2. Model Loading and Configuration
+
+- Loads the Stable Diffusion model from Hugging Face.
+- Configures device (`cuda`) and FP16 for fast GPU processing.
+
+### 3. Image Generation and Postprocessing
+
+- Generates image using the prompt.
+- Resizes output for visualization.
+- Displays or stores image results.
+
+---
+
+## Acknowledgements
+
+This project was done as part of a creative exploration into generative AI. I’ve referred to several online tutorials, videos, and open-source repositories while building and understanding the solution:
+
+- YouTube tutorials on image generation with Hugging Face and diffusers.
+- Hugging Face documentation and model cards.
+- Community blogs and GitHub repos.
 
 ---
 
@@ -32,4 +58,3 @@ Prompt 2:
 
 Prompt 3:
 ![image](https://github.com/user-attachments/assets/c0b45d02-6945-4375-8366-4d6ebe81c735)
-
